@@ -2,11 +2,47 @@
 
 class Solution:
 	def isPossible(self, paths):
-		# Code here
+        '''
+        ------------------------------------
+        
+        Just check if Graph contains Eulers circuit or not.
+        
+        If every node in a graph has even degree then it contains eulers circuit
+        		
+        ------------------------------------
 		
-		n=len(paths)
 		
-# 		degree=[0]*n
+		 
+		Euler Circuit is a graph where you can travel from one node and return back to the same node 
+		by exactly visiting all the edges once
+		(All nodes even degree)
+		
+		A----B----C    A->B->C->E->B->D->A   F
+	    |   / \   |
+		|  /   \  |     
+		| /     \ |
+		 D        E  
+		 
+		    
+		    F
+		
+		
+		
+		If you can start from one node and visit all the edges, but cannot return back to the starting
+		node, it is called as semi euler circuit 
+		(Here degree of the starting and ending node will be odd, 
+		whereas all other nodes will be even)
+		
+		
+		A----B----C    A->B->C->E->B   F
+              \   |
+		       \  |
+		        \ |
+		 F       E  
+		
+		A single vertex with no edges is always a euler circuit
+		
+        '''
 		
 		for i in range(n):
 		    c=0
@@ -14,50 +50,18 @@ class Solution:
 		        
 		        if paths[i][j]==1:
 		            c+=1
-		            
+            
             if c&1:
                 return 0
                 
         return 1
-        
-#         print(degree)
-#         cnt=0
-#         for i in degree:
-#             if i&1:
-#                 return 0
-                
-#             if i==0:
-#                 cnt+=1
-                
-            
-#         if cnt==n:return 1
-        
-		
-		
-		
-# 		def dfs(i):
-		    
-# 		    vis.add(i)
-		    
-# 		    for nbr in range(n):
-		        
-# 		        if paths[i][nbr]==1 and nbr not in vis:
-# 		            vis.add(nbr)
-		            
-# 		            dfs(nbr)
-		                
+       
+	                
 		    
 		    
 		    
 	    
-# 	    vis=set()
-# 	    dfs(0)
-# 	   # print(degree, vis)
-# 	    for i in range(n):
-# 	        if i not in vis and degree[i]!=0:
-# 	            return 0
-            
-#         return 1
+
 	    
 	    
                 
