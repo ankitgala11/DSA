@@ -5,6 +5,37 @@ class Solution:
     #Function to find if the given edge is a bridge in graph.
     def isBridge(self, V, adj, c, d):
         # code here
+        
+        
+        # c se chalu kar dfs 
+        # agar i c and nbr d hai toh usko skip kar
+        # aage dfs chala 
+        # agar fir bhi d vis mein aa jata hai toh voh bridge nahi hai
+        # def dfs(i):
+        #     vis.add(i)
+            
+        #     for nbr in adj[i]:
+                
+        #         if nbr not in vis:
+                
+        #             if i==c and nbr==d:
+        #                 continue
+                    
+        #             dfs(nbr)
+                
+                
+                
+        
+        
+        # vis=set()
+        
+        # dfs(c)
+        # if d in vis:
+        #     return 0
+        # return 1
+        
+        
+        # Tarjan Algo
         def dfs(i, parent):
             nonlocal timer 
             
@@ -36,7 +67,7 @@ class Solution:
                         
                 else:
                     
-                    low[i] = min( low[i], misc[nbr])
+                    low[i] = min( low[i], low[nbr])
                         
                 
                 
