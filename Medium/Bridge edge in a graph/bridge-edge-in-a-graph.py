@@ -43,7 +43,7 @@ class Solution:
             
             
             low[i]=timer
-            misc[i]=timer
+            disc[i]=timer
             
             timer+=1
             
@@ -61,13 +61,13 @@ class Solution:
                     
                     low[i] = min( low[nbr] ,  low[i] )
                     
-                    if ((i==c and nbr==d) or (i==d and nbr==c)) and low[nbr] > misc[i]:
+                    if ((i==c and nbr==d) or (i==d and nbr==c)) and low[nbr] > disc[i]:
                         return 1
                         
                         
                 else:
                     
-                    low[i] = min( low[i], low[nbr])
+                    low[i] = min( low[i], disc[nbr])
                         
                 
                 
@@ -76,7 +76,7 @@ class Solution:
             
             
         vis=[0]*V
-        misc=[-1]*V
+        disc=[-1]*V
         low=[-1]*V
         parent=-1
         
