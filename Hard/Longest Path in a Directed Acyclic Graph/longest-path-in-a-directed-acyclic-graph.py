@@ -8,10 +8,19 @@ class Solution:
     def maximumDistance(self, v : int, e : int, src : int, edges : List[List[int]]) -> List[int]:
         # code here
         
+        # Find topo order 
+        # Iterate through that 
+        # if udhar se uske nbr tak jaane ke distance dist array mein kam hai isse toh update
+        
+        
         adj=defaultdict(list)
         
         for i in edges:
             adj[i[0]].append((i[1], i[2]))
+            
+            
+            
+            
             
         def topo(i):
             vis.add(i)
