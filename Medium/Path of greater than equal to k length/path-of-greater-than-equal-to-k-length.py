@@ -24,7 +24,7 @@ class Solution:
                     if wt>=K:
                         return True
                         
-                    vis.add(nbr[0])
+                    # vis.add(nbr[0])
                     
                     if dfs(nbr[0], wt):
                         return True
