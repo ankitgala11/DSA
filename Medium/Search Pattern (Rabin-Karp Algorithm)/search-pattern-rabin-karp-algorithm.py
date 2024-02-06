@@ -3,18 +3,34 @@
 class Solution:
     def search(self, patt, s):
         
-        # sliding window -----------------------------------------------------------
-        # sliding technique does not work as we neet to maintain the order of alphabets in string
+        '''
+        sliding window -----------------------------------------------------------
+        sliding technique does not work as we neet to maintain the order of alphabets in string
         
-        # eg s = abca 
-        #   p = abc
+        eg s = abca 
+          p = abc
            
            
-        #   Acc to sliding tech ans will be 1,2 as it will give true for bca but we need abc order
-        #   so only ans is 1
+          Acc to sliding tech ans will be 1,2 as it will give true for bca but we need abc order
+          so only ans is 1
         
             
-        # KMP-----------------------------------------------------------
+        
+        KMP-----------------------------------------------------------
+        
+        finding longest prefix which is suffix in patt
+        
+        eg p =abcaby
+        arr=[0,0,0,1,2,0]
+        
+        # creating lps array
+        # will start j from i-1
+        # ulta jate hue check karenge kahi i==j milaa
+        
+        # mill gaya toh usme j ka index +1 daal denge
+        # abcaby
+        # [0,0,1,2,0]
+        '''
         n=len(patt)
         arr=[0]*n
         
@@ -28,6 +44,25 @@ class Solution:
                 
             arr[i]=j
             
+        '''
+        start for loop for s
+        
+        if i==j
+            i++ j++
+            
+        else
+            agar j==0
+                i++
+            
+            else
+                j= arr[j-1]
+                
+            
+            agar j khatam yani == n
+                ans add (i end pe hoga j mein len hoga so i-j +1 for 1 based index)
+                j ko arr[j-1]
+                
+        '''
             
         j=0
         ans=[]
@@ -48,6 +83,7 @@ class Solution:
                     i+=1
                 
             if j==n:
+                # print(i, j)
                 ans.append(i-j+1)
                 j=arr[j-1]
                 
@@ -124,6 +160,9 @@ class Solution:
             
         # else:
         #     return [-1]
+
+
+
 
 
 
