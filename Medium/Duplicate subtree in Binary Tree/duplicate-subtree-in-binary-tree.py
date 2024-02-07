@@ -13,20 +13,22 @@ class Solution:
         mp={}
         def solve(root):
             if not root:
-                return float('inf')
+                return "#"
                 
             if not root.left and not root.right:
-                return root.data
+                return "#"+str(root.data)+"#"
                 
             left=solve(root.left)
             right=solve(root.right)
             
-            if left!=None and right!=None:
-                if (root.data, left, right) in mp:
-                    mp[(root.data, left, right)]+=1
-                else:
-                    mp[(root.data, left, right)]=1
+            s=left+str(root.data)+right
             
+            if s in mp:
+                mp[s]+=1
+            else:
+                mp[s]=1
+            
+            return s
             
         solve(root)
         # print(mp)
@@ -41,6 +43,9 @@ class Solution:
             
             
             
+
+
+
 
 
 
