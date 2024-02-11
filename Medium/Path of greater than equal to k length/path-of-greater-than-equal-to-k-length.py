@@ -12,25 +12,21 @@ class Solution:
             
         def dfs(i, wt):
             
-                
+            
+            if wt>=K:
+                return True
             vis.add(i)
 
-            for nbr in adj[i]:
+            for nbr, w in adj[i]:
                 
-                if nbr[0] not in vis:
+                if nbr not in vis:
                     
-                    wt+=nbr[1]
+                   
                     
-                    if wt>=K:
+                    if dfs(nbr, wt+w):
                         return True
                         
-                    # vis.add(nbr[0])
-                    
-                    if dfs(nbr[0], wt):
-                        return True
-                        
-                    vis.remove(nbr[0])
-                    wt-=nbr[1]
+                    vis.remove(nbr)
                         
                         
             
