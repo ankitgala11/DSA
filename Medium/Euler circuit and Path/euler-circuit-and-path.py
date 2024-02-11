@@ -7,11 +7,12 @@ class Solution:
 		
 # 		print(adj)
 
+        
 		degree=[0]*V
 		
 		for i in range(V):
 		    for j in adj[i]:
-		        degree[i]+=1
+		        degree[j]+=1
         
         
         def dfs(i):
