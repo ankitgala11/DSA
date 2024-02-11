@@ -7,8 +7,8 @@ class Solution:
 		
 		for i in range(V):
 		    for j in adj[i]:
-		        degree[i]+=1
-		      #  degree[j]+=1
+		      #  degree[i]+=1
+		        degree[j]+=1
 		        
 	   # print(degree)       
         
