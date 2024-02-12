@@ -4,7 +4,7 @@ class Solution:
     def isKPartitionPossible(self, a, k):
         #code here
         
-        
+        # check if sum of a is proper divisible by k if not then return 0
         s=sum(a)
         if s%k!=0:
             return 0
@@ -16,24 +16,21 @@ class Solution:
         vis=set()
         
         def solve(i, currsum, k):
-            # if i>=n or currsum>s:
-            #     return False
                 
+            # heree k==0 should always be at top of base case as when k==0 there are chances i>=n so if that
+            # case is writen ontop it will give false
             if k==0:
                 return True
                 
             if currsum==s:
                 return solve(0, 0, k-1)
                 
-            if i>=n:
+            if i>=n or currsum>s:
                 return False
-            
-                
-            if currsum>s:
-                return  False
+
 
                 
-            for idx in range(i, n):
+            for idx in range(i , n):
                 if idx not in vis :
                     vis.add(idx)
                     
@@ -46,8 +43,8 @@ class Solution:
             return False
             
                 
-           
-                
+        # so here we need to make  s (ie tot//k )   k times if can be done return True
+       
         if solve(0, 0, k):
             return True
             
