@@ -21,7 +21,7 @@ class Solution:
             
             
             
-        return (fact(n, r)//fact(r, r-1))%mod
+        return (fact(n, r)//fact(r, r))%mod
                 
         
         
