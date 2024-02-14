@@ -38,10 +38,58 @@ class Solution:
             return dp[j][k]
                     
                     
-                    
+                
+                
+       
                 
         dp=[[-1]*(l_b+1)  for _ in range(l_a+1)]         
         return solve(0, 0, 0)
+        
+        
+        
+        '''
+        Tabular for reference
+        
+        
+       int n=a.size();
+       int m=b.size();
+       bool dp[n+1][m+1];
+       memset(&dp,false,sizeof(dp));
+       dp[0][0]=true;
+          for (int i = 0; i <=n; i++)
+       {
+           for (int j = 0; j <=m; j++)
+           {
+               if (i==0 || j==0)
+               {
+                   dp[i][j]=true;
+               }
+               
+           }
+       }
+       for (int i = 1; i <=n; i++)
+       {
+           for (int j = 1; j <=m; j++)
+           {
+              if (a[i-1]==c[i+j-1])
+              {
+                  dp[i][j]|=dp[i-1][j];
+              }
+              if (b[j-1]==c[i+j-1])
+              {
+                  dp[i][j]|=dp[i][j-1];
+              }
+              
+              
+           }
+           
+       }
+       return dp[n][m];
+       
+        '''
+        
+        
+    
                 
                 
                     
