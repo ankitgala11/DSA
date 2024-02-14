@@ -40,6 +40,36 @@ class Solution:
             return dp[i][j]
             
             
+        # need to convert to 1 based for tabular
+        def solveTab():
+            dp=[[0]*(m+1) for _ in range(n+1)]
+            
+            dp[0][0]=True
+            
+            for j in range(1 , n+1):
+                if wild[j-1]=='*':
+                    dp[0][j]=True
+                else:
+                    break
+                    
+            
+            for i in range(1 ,n+1):
+                for j in range(1 , m+1):
+                    
+                    if wild[i-1]==pattern[j-1] or wild[i-1]=='?':
+                        dp[i][j]= dp[i-1][j-1]
+                        
+                        
+                    elif wild[i-1]=='*':
+                        dp[i][j]= dp[i][j-1] or dp[i-1][j]
+                    
+         
+                    else:
+                        dp[i][j]= False
+                        
+                    
+            return dp[n][m]
+                    
             
             
             
@@ -49,6 +79,8 @@ class Solution:
         dp=[[-1]*m for _ in range(n)]
         
         return solve(n-1, m-1)
+        
+        # return solveTab()
 
 #{ 
  # Driver Code Starts
