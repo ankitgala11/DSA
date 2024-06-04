@@ -6,18 +6,14 @@ class Solution:
         #Code here
         
         ans=[A[-1]]
-        maxi=A[-1]
-
-
-        for i in range(N-2, -1, -1):
-            
-            if A[i] >= maxi:
+        
+        for i in range(N-2, -1 , -1):
+            if A[i]>=ans[-1]:
                 ans.append(A[i])
-                maxi=A[i]
-                
                 
                 
         return ans[::-1]
+
 
 #{ 
  # Driver Code Starts
